@@ -17,7 +17,7 @@ def manual_watering():
     rpi_botanidrip.start_water_pump()
     
 def automatic(procced):
-   execute = False
+    execute = False
    
     if procced == True:
         for process in psutil.process_iter():
