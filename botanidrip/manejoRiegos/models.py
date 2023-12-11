@@ -9,3 +9,6 @@ class RiegoPrueba(models.Model):
     hora = models.CharField(max_length=10)
     automatico = models.BooleanField()
     
+    def __str__(self):
+        return self.riegoid
+    
