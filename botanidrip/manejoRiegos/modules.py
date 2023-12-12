@@ -1,5 +1,6 @@
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
 import time
+
 
 
 SENSOR_AGUA=26
@@ -18,11 +19,13 @@ def regadoHastaHumedo():
         GPIO.output(RELAY, GPIO.LOW) 
         print("Regando") 
     print("Regado!")
+    GPIO.cleanup()
 
 def regadoConTiempo(segundos): 
     print("Regando...") 
     GPIO.output(RELAY,GPIO.LOW)
     time.sleep(segundos)
+    GPIO.cleanup()
 
 
 

@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from manejoRiegos.models import RiegoPrueba
 from django.http import HttpResponse
+from manejoRiegos.modules import *
+import threading as th
 
 # Create your views here.
-def home(request):
+def getRiegos(request):
     salida = "["
     for r in RiegoPrueba.objects.all():
         salida+="{"
@@ -13,4 +15,20 @@ def home(request):
     
     
     return HttpResponse(salida)
+
+def accionarRegado(request):
+    try:
+        hilo = th.Thread(regadoManual)
+        hilo.start()
+    except:
+        return HttpResponse(-1)
+    
+    return HttpResponse(1)
+
+
+def regadoManual():
+    init_components()
+    regadoHastaHumedo()
+    
+    
 
