@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
-PIN_WATER_PUMP =
-PIN_SENSOR =
+PIN_WATER_PUMP = 21
+PIN_SENSOR = 21
 
 # Set mode to BOARD | Poner el modo en BOARD
 GPIO.setmode(GPIO.BOARD)
@@ -16,7 +16,7 @@ def init_pin_component(pin):
     GPIO.output(pin, HIGH)
     
 # Check water status | Revisar el estado del agua 
-def check_status(pin = PIN_SENSOR)
+def check_status(pin = PIN_SENSOR):
     GPIO.setup(pin, GPIO.IN)
     return(GPIO.input(pin))
     

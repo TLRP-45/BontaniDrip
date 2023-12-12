@@ -10,5 +10,5 @@ class RiegoPrueba(models.Model):
     automatico = models.BooleanField()
     
     def __str__(self):
-        return self.riegoid
+        return str(self.riegoid)
     
