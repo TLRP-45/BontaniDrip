@@ -4,6 +4,15 @@ from django.http import HttpResponse
 from manejoRiegos.modules import *
 import threading as th
 
+# Threads
+def regadoManual():
+    init_components()
+    regadoHastaHumedo()
+
+def comprobarHumedad():
+    init_sensor()
+
+
 # Create your views here.
 def getRiegos(request):
     salida = "["
@@ -26,9 +35,14 @@ def accionarRegado(request):
     return HttpResponse(1)
 
 
-def regadoManual():
-    init_components()
-    regadoHastaHumedo()
+def obtEstadoAgua(request):
+    try:
+        hilo = th.Thread(comprobarHumedad)
+    except:
+        return HttpResponse(-1)
+    return HttpResponse(GPIO.input(SENSOR_AGUA))
+
+
     
     
 

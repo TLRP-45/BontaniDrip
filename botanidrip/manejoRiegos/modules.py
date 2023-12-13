@@ -9,6 +9,11 @@ CONDICION = False
 SEGUNDOS = 3
 
 
+def init_sensor():
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(SENSOR_AGUA,GPIO.IN)
+    
+
 def init_components():
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(SENSOR_AGUA, GPIO.IN)
