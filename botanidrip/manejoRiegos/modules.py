@@ -23,6 +23,7 @@ def regadoHastaHumedo():
     while GPIO.input(SENSOR_AGUA)==GPIO.HIGH: 
         GPIO.output(RELAY, GPIO.LOW) 
         print("Regando") 
+        time.sleep(0.2)
     print("Regado!")
     GPIO.cleanup()
 
@@ -31,6 +32,9 @@ def regadoConTiempo(segundos):
     GPIO.output(RELAY,GPIO.LOW)
     time.sleep(segundos)
     GPIO.cleanup()
+
+
+
 
 
 

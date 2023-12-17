@@ -4,7 +4,7 @@ from django.db import models
 
 # Create your models here.
 class RiegoPrueba(models.Model):
-    riegoid = models.IntegerField(primary_key=True)
+    riegoid = models.IntegerField(primary_key=True,auto_created=True)
     fecha = models.DateField()
     hora = models.CharField(max_length=10)
     automatico = models.BooleanField()

@@ -21,5 +21,6 @@ from manejoRiegos import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('riegos/', views.getRiegos),
-    path('rm1/',views.accionarRegado)
+    path('rm1/',views.accionarRegado),
+    path('pruebas/',views.Pruebas)
 ]
