@@ -11,6 +11,7 @@ def regadoManual():
 
 def comprobarHumedad():
     init_sensor()
+    
 
 def getNewID():
     try:
@@ -30,8 +31,6 @@ def getDate():
 
 # Create your views here.
 def Pruebas(request):
-    r = RiegoPrueba(getNewID(),getDate(),getHour(),False)
-    r.save()
     return HttpResponse('AGREGADO')
 
 def getRiegos(request):
@@ -46,7 +45,8 @@ def getRiegos(request):
 
 def accionarRegado(request):
     try:
-        hilo = th.Thread(regadoManual)
+        hilo = th.Thread(name="riiego",target=regadoManual)
+        
         hilo.start()
         r = RiegoPrueba(getNewID(),getDate(),getHour(),False)
         r.save()
@@ -59,7 +59,8 @@ def accionarRegado(request):
 
 def obtEstadoAgua(request):
     try:
-        hilo = th.Thread(comprobarHumedad)
+        hilo = th.Thread(name="compruena",target=comprobarHumedad)
+        hilo.start()
     except:
         return HttpResponse(-1)
     return HttpResponse(GPIO.input(SENSOR_AGUA))

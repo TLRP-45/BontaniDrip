@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('riegos/', views.getRiegos),
     path('rm1/',views.accionarRegado),
+    path('ws1/',views.obtEstadoAgua),
     path('pruebas/',views.Pruebas)
 ]
